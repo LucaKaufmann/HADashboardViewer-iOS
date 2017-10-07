@@ -8,14 +8,23 @@
 
 import UIKit
 
-@UIApplicationMain
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let mainViewController = HADMainViewController()
+        window!.rootViewController = mainViewController
+        window!.makeKeyAndVisible()
+        UIApplication.shared.isIdleTimerDisabled = true
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(AppDelegate.applicationDidTimeout(notification:)),
+                                               name: .appTimeout,
+                                               object: nil
+        )
         return true
     }
 
@@ -39,6 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    @objc func applicationDidTimeout(notification: NSNotification) {
+        print("User inactive, dimming screen");
+        UIScreen.main.brightness = CGFloat(0.1)
     }
 
 

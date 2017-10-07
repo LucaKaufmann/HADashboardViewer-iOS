@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4029B0D51F83FE50004C5567 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029B0D41F83FE50004C5567 /* main.swift */; };
+		4029B0D91F83FFD7004C5567 /* TimerApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029B0D81F83FFD7004C5567 /* TimerApplication.swift */; };
+		4029B0DB1F840047004C5567 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029B0DA1F840047004C5567 /* NotificationName+Extension.swift */; };
 		404771491F77D4F400D93E56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404771481F77D4F400D93E56 /* AppDelegate.swift */; };
 		4047714B1F77D4F400D93E56 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047714A1F77D4F400D93E56 /* RootViewController.swift */; };
 		4047714D1F77D4F400D93E56 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047714C1F77D4F400D93E56 /* DataViewController.swift */; };
 		4047714F1F77D4F400D93E56 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047714E1F77D4F400D93E56 /* ModelController.swift */; };
-		404771521F77D4F400D93E56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404771501F77D4F400D93E56 /* Main.storyboard */; };
 		404771541F77D4F400D93E56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 404771531F77D4F400D93E56 /* Assets.xcassets */; };
 		404771571F77D4F400D93E56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404771551F77D4F400D93E56 /* LaunchScreen.storyboard */; };
 		404771621F77D4F400D93E56 /* HADashboard_ViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404771611F77D4F400D93E56 /* HADashboard_ViewerTests.swift */; };
 		4047716D1F77D4F400D93E56 /* HADashboard_ViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047716C1F77D4F400D93E56 /* HADashboard_ViewerUITests.swift */; };
+		4047717B1F77D9B100D93E56 /* HADMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047717A1F77D9B100D93E56 /* HADMainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4029B0D41F83FE50004C5567 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4029B0D81F83FFD7004C5567 /* TimerApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerApplication.swift; sourceTree = "<group>"; };
+		4029B0DA1F840047004C5567 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		404771451F77D4F400D93E56 /* HADashboard Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HADashboard Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		404771481F77D4F400D93E56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4047714A1F77D4F400D93E56 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4047714C1F77D4F400D93E56 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		4047714E1F77D4F400D93E56 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
-		404771511F77D4F400D93E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		404771531F77D4F400D93E56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		404771561F77D4F400D93E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		404771581F77D4F400D93E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +56,7 @@
 		404771681F77D4F400D93E56 /* HADashboard ViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HADashboard ViewerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4047716C1F77D4F400D93E56 /* HADashboard_ViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HADashboard_ViewerUITests.swift; sourceTree = "<group>"; };
 		4047716E1F77D4F400D93E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4047717A1F77D9B100D93E56 /* HADMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HADMainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +107,14 @@
 		404771471F77D4F400D93E56 /* HADashboard Viewer */ = {
 			isa = PBXGroup;
 			children = (
+				4029B0DA1F840047004C5567 /* NotificationName+Extension.swift */,
+				4029B0D81F83FFD7004C5567 /* TimerApplication.swift */,
 				404771481F77D4F400D93E56 /* AppDelegate.swift */,
+				4029B0D41F83FE50004C5567 /* main.swift */,
 				4047714A1F77D4F400D93E56 /* RootViewController.swift */,
 				4047714C1F77D4F400D93E56 /* DataViewController.swift */,
 				4047714E1F77D4F400D93E56 /* ModelController.swift */,
-				404771501F77D4F400D93E56 /* Main.storyboard */,
+				4047717A1F77D9B100D93E56 /* HADMainViewController.swift */,
 				404771531F77D4F400D93E56 /* Assets.xcassets */,
 				404771551F77D4F400D93E56 /* LaunchScreen.storyboard */,
 				404771581F77D4F400D93E56 /* Info.plist */,
@@ -240,7 +249,6 @@
 			files = (
 				404771571F77D4F400D93E56 /* LaunchScreen.storyboard in Resources */,
 				404771541F77D4F400D93E56 /* Assets.xcassets in Resources */,
-				404771521F77D4F400D93E56 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,9 +273,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4029B0D91F83FFD7004C5567 /* TimerApplication.swift in Sources */,
 				4047714B1F77D4F400D93E56 /* RootViewController.swift in Sources */,
 				4047714F1F77D4F400D93E56 /* ModelController.swift in Sources */,
+				4029B0D51F83FE50004C5567 /* main.swift in Sources */,
+				4047717B1F77D9B100D93E56 /* HADMainViewController.swift in Sources */,
 				4047714D1F77D4F400D93E56 /* DataViewController.swift in Sources */,
+				4029B0DB1F840047004C5567 /* NotificationName+Extension.swift in Sources */,
 				404771491F77D4F400D93E56 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,14 +316,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		404771501F77D4F400D93E56 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				404771511F77D4F400D93E56 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		404771551F77D4F400D93E56 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -435,10 +439,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3BKAAEFQ9S;
+				DEVELOPMENT_TEAM = 6Y9C574C9M;
 				INFOPLIST_FILE = "HADashboard Viewer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thatsluke.HADashboard-Viewer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thatsluke.HADashboardViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -450,10 +455,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3BKAAEFQ9S;
+				DEVELOPMENT_TEAM = 6Y9C574C9M;
 				INFOPLIST_FILE = "HADashboard Viewer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thatsluke.HADashboard-Viewer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thatsluke.HADashboardViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
