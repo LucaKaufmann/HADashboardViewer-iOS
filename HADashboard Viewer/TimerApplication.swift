@@ -14,15 +14,14 @@ class TimerApplication: UIApplication {
     // such as disconnecting the user
     private var timeoutInSeconds: TimeInterval {
         // 2 minutes
-        return 2 * 60
+        return 2*60
     }
     
     private var idleTimer: Timer?
     
     // resent the timer because there was user interaction
     private func resetIdleTimer() {
-        
-        UIScreen.main.brightness = CGFloat(0.1)
+        UIScreen.main.brightness = CGFloat(1.0)
         
         if let idleTimer = idleTimer {
             idleTimer.invalidate()
@@ -30,7 +29,7 @@ class TimerApplication: UIApplication {
         
         idleTimer = Timer.scheduledTimer(timeInterval: timeoutInSeconds,
                                          target: self,
-                                         selector: #selector(TimerApplication.timeHasExceeded),
+                                         selector: #selector(self.timeHasExceeded),
                                          userInfo: nil,
                                          repeats: false
         )
@@ -47,7 +46,7 @@ class TimerApplication: UIApplication {
         
         super.sendEvent(event)
         
-        if idleTimer != nil {
+        if idleTimer == nil {
             self.resetIdleTimer()
         }
         
@@ -57,4 +56,5 @@ class TimerApplication: UIApplication {
             }
         }
     }
+    
 }

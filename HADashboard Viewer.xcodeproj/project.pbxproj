@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27F9E166E5BA22ED986267DB /* Pods_HADashboard_Viewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9ADF7363F949830E84ACE1D /* Pods_HADashboard_Viewer.framework */; };
 		4029B0D51F83FE50004C5567 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029B0D41F83FE50004C5567 /* main.swift */; };
 		4029B0D91F83FFD7004C5567 /* TimerApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029B0D81F83FFD7004C5567 /* TimerApplication.swift */; };
 		4029B0DB1F840047004C5567 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029B0DA1F840047004C5567 /* NotificationName+Extension.swift */; };
 		404771491F77D4F400D93E56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404771481F77D4F400D93E56 /* AppDelegate.swift */; };
-		4047714B1F77D4F400D93E56 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047714A1F77D4F400D93E56 /* RootViewController.swift */; };
-		4047714D1F77D4F400D93E56 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047714C1F77D4F400D93E56 /* DataViewController.swift */; };
-		4047714F1F77D4F400D93E56 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047714E1F77D4F400D93E56 /* ModelController.swift */; };
 		404771541F77D4F400D93E56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 404771531F77D4F400D93E56 /* Assets.xcassets */; };
 		404771571F77D4F400D93E56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404771551F77D4F400D93E56 /* LaunchScreen.storyboard */; };
 		404771621F77D4F400D93E56 /* HADashboard_ViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404771611F77D4F400D93E56 /* HADashboard_ViewerTests.swift */; };
 		4047716D1F77D4F400D93E56 /* HADashboard_ViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047716C1F77D4F400D93E56 /* HADashboard_ViewerUITests.swift */; };
 		4047717B1F77D9B100D93E56 /* HADMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047717A1F77D9B100D93E56 /* HADMainViewController.swift */; };
+		816D431A1FAB6CB30019A43B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816D43191FAB6CB30019A43B /* Main.storyboard */; };
+		8BF6E0406C1732D3D1F12D36 /* Pods_HADashboard_ViewerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F849DB5BC6630ACD7D20D0 /* Pods_HADashboard_ViewerTests.framework */; };
+		9F7FB356A69323C81B236D42 /* Pods_HADashboard_ViewerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E2AA7018CCF83C8FAEA44E /* Pods_HADashboard_ViewerUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,14 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F1AEEDB3F816CC95978ED52 /* Pods-HADashboard ViewerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HADashboard ViewerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HADashboard ViewerTests/Pods-HADashboard ViewerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		31CAA54E049B06D39FBB7472 /* Pods-HADashboard Viewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HADashboard Viewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HADashboard Viewer/Pods-HADashboard Viewer.debug.xcconfig"; sourceTree = "<group>"; };
 		4029B0D41F83FE50004C5567 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4029B0D81F83FFD7004C5567 /* TimerApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerApplication.swift; sourceTree = "<group>"; };
 		4029B0DA1F840047004C5567 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		404771451F77D4F400D93E56 /* HADashboard Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HADashboard Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		404771481F77D4F400D93E56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4047714A1F77D4F400D93E56 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		4047714C1F77D4F400D93E56 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
-		4047714E1F77D4F400D93E56 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		404771531F77D4F400D93E56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		404771561F77D4F400D93E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		404771581F77D4F400D93E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +57,14 @@
 		4047716C1F77D4F400D93E56 /* HADashboard_ViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HADashboard_ViewerUITests.swift; sourceTree = "<group>"; };
 		4047716E1F77D4F400D93E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4047717A1F77D9B100D93E56 /* HADMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HADMainViewController.swift; sourceTree = "<group>"; };
+		48BE41B18B4F5FE76625E857 /* Pods-HADashboard ViewerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HADashboard ViewerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HADashboard ViewerUITests/Pods-HADashboard ViewerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		49A3BDDD689C97EA12297AD7 /* Pods-HADashboard ViewerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HADashboard ViewerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HADashboard ViewerTests/Pods-HADashboard ViewerTests.release.xcconfig"; sourceTree = "<group>"; };
+		816D43191FAB6CB30019A43B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8371F9689BF5748EB85663EF /* Pods-HADashboard Viewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HADashboard Viewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-HADashboard Viewer/Pods-HADashboard Viewer.release.xcconfig"; sourceTree = "<group>"; };
+		A4E2AA7018CCF83C8FAEA44E /* Pods_HADashboard_ViewerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HADashboard_ViewerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9ADF7363F949830E84ACE1D /* Pods_HADashboard_Viewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HADashboard_Viewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4F849DB5BC6630ACD7D20D0 /* Pods_HADashboard_ViewerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HADashboard_ViewerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBF010A363CDA2975F04A754 /* Pods-HADashboard ViewerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HADashboard ViewerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HADashboard ViewerUITests/Pods-HADashboard ViewerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F9E166E5BA22ED986267DB /* Pods_HADashboard_Viewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF6E0406C1732D3D1F12D36 /* Pods_HADashboard_ViewerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,12 +88,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F7FB356A69323C81B236D42 /* Pods_HADashboard_ViewerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EF5D654C65B6939E431938F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31CAA54E049B06D39FBB7472 /* Pods-HADashboard Viewer.debug.xcconfig */,
+				8371F9689BF5748EB85663EF /* Pods-HADashboard Viewer.release.xcconfig */,
+				0F1AEEDB3F816CC95978ED52 /* Pods-HADashboard ViewerTests.debug.xcconfig */,
+				49A3BDDD689C97EA12297AD7 /* Pods-HADashboard ViewerTests.release.xcconfig */,
+				DBF010A363CDA2975F04A754 /* Pods-HADashboard ViewerUITests.debug.xcconfig */,
+				48BE41B18B4F5FE76625E857 /* Pods-HADashboard ViewerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4047713C1F77D4F400D93E56 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +115,8 @@
 				404771601F77D4F400D93E56 /* HADashboard ViewerTests */,
 				4047716B1F77D4F400D93E56 /* HADashboard ViewerUITests */,
 				404771461F77D4F400D93E56 /* Products */,
+				0EF5D654C65B6939E431938F /* Pods */,
+				D2599B29BF6132708FF25245 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,10 +137,8 @@
 				4029B0D81F83FFD7004C5567 /* TimerApplication.swift */,
 				404771481F77D4F400D93E56 /* AppDelegate.swift */,
 				4029B0D41F83FE50004C5567 /* main.swift */,
-				4047714A1F77D4F400D93E56 /* RootViewController.swift */,
-				4047714C1F77D4F400D93E56 /* DataViewController.swift */,
-				4047714E1F77D4F400D93E56 /* ModelController.swift */,
 				4047717A1F77D9B100D93E56 /* HADMainViewController.swift */,
+				816D43191FAB6CB30019A43B /* Main.storyboard */,
 				404771531F77D4F400D93E56 /* Assets.xcassets */,
 				404771551F77D4F400D93E56 /* LaunchScreen.storyboard */,
 				404771581F77D4F400D93E56 /* Info.plist */,
@@ -140,6 +164,16 @@
 			path = "HADashboard ViewerUITests";
 			sourceTree = "<group>";
 		};
+		D2599B29BF6132708FF25245 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9ADF7363F949830E84ACE1D /* Pods_HADashboard_Viewer.framework */,
+				D4F849DB5BC6630ACD7D20D0 /* Pods_HADashboard_ViewerTests.framework */,
+				A4E2AA7018CCF83C8FAEA44E /* Pods_HADashboard_ViewerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 404771711F77D4F400D93E56 /* Build configuration list for PBXNativeTarget "HADashboard Viewer" */;
 			buildPhases = (
+				66FB9D711759154F9388BAEF /* [CP] Check Pods Manifest.lock */,
 				404771411F77D4F400D93E56 /* Sources */,
 				404771421F77D4F400D93E56 /* Frameworks */,
 				404771431F77D4F400D93E56 /* Resources */,
+				5AE4E883B2EC3E15DFCACE42 /* [CP] Embed Pods Frameworks */,
+				81C6734A35B7AA4694EA2776 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 404771741F77D4F400D93E56 /* Build configuration list for PBXNativeTarget "HADashboard ViewerTests" */;
 			buildPhases = (
+				4861FCD6228EB96D3AE21A7B /* [CP] Check Pods Manifest.lock */,
 				404771591F77D4F400D93E56 /* Sources */,
 				4047715A1F77D4F400D93E56 /* Frameworks */,
 				4047715B1F77D4F400D93E56 /* Resources */,
+				07BF17E25AF71E032B58A04A /* [CP] Embed Pods Frameworks */,
+				E92C3F004169080ADF13B425 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,9 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 404771771F77D4F400D93E56 /* Build configuration list for PBXNativeTarget "HADashboard ViewerUITests" */;
 			buildPhases = (
+				2C29CEC43BD1A37793A199BE /* [CP] Check Pods Manifest.lock */,
 				404771641F77D4F400D93E56 /* Sources */,
 				404771651F77D4F400D93E56 /* Frameworks */,
 				404771661F77D4F400D93E56 /* Resources */,
+				40CE4E6C9A4B785E5E361E85 /* [CP] Embed Pods Frameworks */,
+				71E245959434309385A5011A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				816D431A1FAB6CB30019A43B /* Main.storyboard in Resources */,
 				404771571F77D4F400D93E56 /* LaunchScreen.storyboard in Resources */,
 				404771541F77D4F400D93E56 /* Assets.xcassets in Resources */,
 			);
@@ -268,17 +312,164 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07BF17E25AF71E032B58A04A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HADashboard ViewerTests/Pods-HADashboard ViewerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C29CEC43BD1A37793A199BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HADashboard ViewerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40CE4E6C9A4B785E5E361E85 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HADashboard ViewerUITests/Pods-HADashboard ViewerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4861FCD6228EB96D3AE21A7B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HADashboard ViewerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AE4E883B2EC3E15DFCACE42 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HADashboard Viewer/Pods-HADashboard Viewer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HADashboard Viewer/Pods-HADashboard Viewer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66FB9D711759154F9388BAEF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HADashboard Viewer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71E245959434309385A5011A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HADashboard ViewerUITests/Pods-HADashboard ViewerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81C6734A35B7AA4694EA2776 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HADashboard Viewer/Pods-HADashboard Viewer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E92C3F004169080ADF13B425 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HADashboard ViewerTests/Pods-HADashboard ViewerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		404771411F77D4F400D93E56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4029B0D91F83FFD7004C5567 /* TimerApplication.swift in Sources */,
-				4047714B1F77D4F400D93E56 /* RootViewController.swift in Sources */,
-				4047714F1F77D4F400D93E56 /* ModelController.swift in Sources */,
 				4029B0D51F83FE50004C5567 /* main.swift in Sources */,
 				4047717B1F77D9B100D93E56 /* HADMainViewController.swift in Sources */,
-				4047714D1F77D4F400D93E56 /* DataViewController.swift in Sources */,
 				4029B0DB1F840047004C5567 /* NotificationName+Extension.swift in Sources */,
 				404771491F77D4F400D93E56 /* AppDelegate.swift in Sources */,
 			);
@@ -436,6 +627,7 @@
 		};
 		404771721F77D4F400D93E56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31CAA54E049B06D39FBB7472 /* Pods-HADashboard Viewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -452,6 +644,7 @@
 		};
 		404771731F77D4F400D93E56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8371F9689BF5748EB85663EF /* Pods-HADashboard Viewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +661,7 @@
 		};
 		404771751F77D4F400D93E56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F1AEEDB3F816CC95978ED52 /* Pods-HADashboard ViewerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -485,6 +679,7 @@
 		};
 		404771761F77D4F400D93E56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49A3BDDD689C97EA12297AD7 /* Pods-HADashboard ViewerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -502,6 +697,7 @@
 		};
 		404771781F77D4F400D93E56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBF010A363CDA2975F04A754 /* Pods-HADashboard ViewerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -518,6 +714,7 @@
 		};
 		404771791F77D4F400D93E56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48BE41B18B4F5FE76625E857 /* Pods-HADashboard ViewerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

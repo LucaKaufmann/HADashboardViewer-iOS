@@ -1,0 +1,6 @@
+framework module Pods_HADashboard_Viewer {
+  umbrella header "Pods-HADashboard Viewer-umbrella.h"
+
+  export *
+  module * { export * }
+}

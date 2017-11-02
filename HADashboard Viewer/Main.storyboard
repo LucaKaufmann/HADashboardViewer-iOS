@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WHC-Fv-Oqm">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="idu-PY-dGm">
+            <objects>
+                <viewController id="WHC-Fv-Oqm" customClass="HADMainViewController" customModule="HADashboard_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w8X-0i-rny">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nvn-rt-J7X">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nvn-rt-J7X" firstAttribute="trailing" secondItem="EP7-6U-wyT" secondAttribute="trailing" id="2aI-wp-DsL"/>
+                            <constraint firstItem="Nvn-rt-J7X" firstAttribute="top" secondItem="EP7-6U-wyT" secondAttribute="top" id="6xH-SN-4nS"/>
+                            <constraint firstItem="Nvn-rt-J7X" firstAttribute="leading" secondItem="EP7-6U-wyT" secondAttribute="leading" id="W7M-tE-jYa"/>
+                            <constraint firstItem="Nvn-rt-J7X" firstAttribute="bottom" secondItem="EP7-6U-wyT" secondAttribute="bottom" id="vKH-i7-tkt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EP7-6U-wyT"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Nvn-rt-J7X" id="te9-U1-W3d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o9B-I5-eeL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="197.4609375" y="-94.53125"/>
+        </scene>
+    </scenes>
+</document>

@@ -8,24 +8,36 @@
 
 import UIKit
 import WebKit
+import Alamofire
+import Foundation
 
-
-class HADMainViewController: UIViewController, WKUIDelegate {
-    var webView: WKWebView!
-   
-    override func loadView() {
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        webView.uiDelegate = self
-        view = webView
-    }
+class HADMainViewController: UIViewController {
+    
+    @IBOutlet weak var webView: UIWebView!
+    
+    var requestTimer: Timer!
+    
+    let headers: HTTPHeaders = [
+        "x-ha-access": Secrets.apiPassword,
+        "Content-Type": "application/json"
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let myURL = URL(string: "http://192.168.92.100:5050/Tablet")
+        let myURL = URL(string: Secrets.dashboardUrl)
         let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
+        webView.loadRequest(myRequest)
+        //webView.load(myRequest)
         webView.scrollView.isScrollEnabled = false
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.applicationDidTimeout(notification:)),
+                                               name: .appTimeout,
+                                               object: nil)
+        
+        requestTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(self.requestPresence), userInfo: nil, repeats: true)
+        self.requestPresence()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +46,34 @@ class HADMainViewController: UIViewController, WKUIDelegate {
     }
     
 
+    @objc func requestPresence() {
+        Alamofire.request("\(Secrets.homeAssistantUrl)/api/states/group.all_devices", headers:headers).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let json = response.result.value as? [String:AnyObject]{
+                print("JSON: \(json)") // serialized json response
+                if let state = json["state"] {
+                    if (state.isEqual(to: "home")) {
+                      print("Someone is home")
+                      UIApplication.shared.isIdleTimerDisabled = true
+                    } else {
+                      print("No one is home")
+                      UIApplication.shared.isIdleTimerDisabled = false
+                    }
+                } else {
+                    print("Wrong dictionary")
+                }
+            }
+
+        }
+    }
+    
+    @objc func applicationDidTimeout(notification: NSNotification) {
+        print("User inactive, dimming screen")
+        UIScreen.main.brightness = CGFloat(0.01)
+    }
     /*
     // MARK: - Navigation
 
@@ -43,5 +83,6 @@ class HADMainViewController: UIViewController, WKUIDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }
