@@ -18,6 +18,7 @@
 		4047716D1F77D4F400D93E56 /* HADashboard_ViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047716C1F77D4F400D93E56 /* HADashboard_ViewerUITests.swift */; };
 		4047717B1F77D9B100D93E56 /* HADMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047717A1F77D9B100D93E56 /* HADMainViewController.swift */; };
 		816D431A1FAB6CB30019A43B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816D43191FAB6CB30019A43B /* Main.storyboard */; };
+		81F6DCF31FAB8015000624A5 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6DCF21FAB8015000624A5 /* Secrets.swift */; };
 		8BF6E0406C1732D3D1F12D36 /* Pods_HADashboard_ViewerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F849DB5BC6630ACD7D20D0 /* Pods_HADashboard_ViewerTests.framework */; };
 		9F7FB356A69323C81B236D42 /* Pods_HADashboard_ViewerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E2AA7018CCF83C8FAEA44E /* Pods_HADashboard_ViewerUITests.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		48BE41B18B4F5FE76625E857 /* Pods-HADashboard ViewerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HADashboard ViewerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HADashboard ViewerUITests/Pods-HADashboard ViewerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		49A3BDDD689C97EA12297AD7 /* Pods-HADashboard ViewerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HADashboard ViewerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HADashboard ViewerTests/Pods-HADashboard ViewerTests.release.xcconfig"; sourceTree = "<group>"; };
 		816D43191FAB6CB30019A43B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		81F6DCF21FAB8015000624A5 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Secrets.swift; path = "/Users/luca/git/HADashboardViewer-iOS/HADashboard Viewer/Secrets.swift"; sourceTree = "<absolute>"; };
 		8371F9689BF5748EB85663EF /* Pods-HADashboard Viewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HADashboard Viewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-HADashboard Viewer/Pods-HADashboard Viewer.release.xcconfig"; sourceTree = "<group>"; };
 		A4E2AA7018CCF83C8FAEA44E /* Pods_HADashboard_ViewerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HADashboard_ViewerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9ADF7363F949830E84ACE1D /* Pods_HADashboard_Viewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HADashboard_Viewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 		404771471F77D4F400D93E56 /* HADashboard Viewer */ = {
 			isa = PBXGroup;
 			children = (
+				81F6DCF21FAB8015000624A5 /* Secrets.swift */,
 				4029B0DA1F840047004C5567 /* NotificationName+Extension.swift */,
 				4029B0D81F83FFD7004C5567 /* TimerApplication.swift */,
 				404771481F77D4F400D93E56 /* AppDelegate.swift */,
@@ -468,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4029B0D91F83FFD7004C5567 /* TimerApplication.swift in Sources */,
+				81F6DCF31FAB8015000624A5 /* Secrets.swift in Sources */,
 				4029B0D51F83FE50004C5567 /* main.swift in Sources */,
 				4047717B1F77D9B100D93E56 /* HADMainViewController.swift in Sources */,
 				4029B0DB1F840047004C5567 /* NotificationName+Extension.swift in Sources */,
