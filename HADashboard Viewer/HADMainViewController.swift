@@ -2,7 +2,7 @@
 //  HADMainViewController.swift
 //  HADashboard Viewer
 //
-//  Created by Luca Kaufmann on 24/09/2017.
+//  Created by Luca Kaufmann on 03/11/2017.
 //  Copyright © 2017 Luca Kaufmann. All rights reserved.
 //
 
@@ -12,8 +12,7 @@ import Alamofire
 import Foundation
 
 class HADMainViewController: UIViewController {
-    
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var requestTimer: Timer!
     var peopleHome: Bool!
@@ -25,14 +24,6 @@ class HADMainViewController: UIViewController {
     ]
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let myURL = URL(string: "\(Secrets.dashboardUrl)")
-        let myRequest = URLRequest(url: myURL!)
-        webView.loadRequest(myRequest)
-        //webView.load(myRequest)
-        webView.scrollView.isScrollEnabled = false
-        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.applicationDidTimeout(notification:)),
                                                name: .appTimeout,
@@ -40,13 +31,31 @@ class HADMainViewController: UIViewController {
         
         requestTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(self.checkState), userInfo: nil, repeats: true)
         self.requestPresence()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeDashboard = storyboard.instantiateViewController(withIdentifier: "HADHomeViewController") as! HADHomeViewController
+            
+        scrollView.contentSize = CGSize(width: 2 * view.frame.width, height: scrollView.frame.height)
+        let frameVC = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        
+        homeDashboard.view.frame = frameVC
+        homeDashboard.setDashboardUrl(url: "\(Secrets.dashboardUrl)")
+        homeDashboard.willMove(toParentViewController: self)
+        self.addChildViewController(homeDashboard)
+        homeDashboard.didMove(toParentViewController: self)
+        scrollView.addSubview(homeDashboard.view)
+        
+        let weatherDashboard = storyboard.instantiateViewController(withIdentifier: "HADHomeViewController") as! HADHomeViewController
+        
+        let weatherFrame = CGRect(x: frameVC.size.width, y: 0, width: view.frame.width, height: view.frame.height)
+        
+        weatherDashboard.view.frame = weatherFrame
+        weatherDashboard.setDashboardUrl(url: "\(Secrets.homeassistantUrl)/floorplan?api_password=\(Secrets.apiPassword)")
+        weatherDashboard.willMove(toParentViewController: self)
+        self.addChildViewController(weatherDashboard)
+        weatherDashboard.didMove(toParentViewController: self)
+        scrollView.addSubview(weatherDashboard.view)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @objc func checkState() {
         self.requestPresence()
         self.requestSleepingState()
@@ -75,17 +84,17 @@ class HADMainViewController: UIViewController {
                 print("JSON: \(json)") // serialized json response
                 if let state = json["state"] {
                     if (state.isEqual(to: "on")) {
-                      print("Everyone is sleeping")
-                      self.sleeping = true
+                        print("Everyone is sleeping")
+                        self.sleeping = true
                     } else {
-                      print("Someone awake")
-                      self.sleeping = false
+                        print("Someone awake")
+                        self.sleeping = false
                     }
                 } else {
                     print("Wrong dictionary")
                 }
             }
-
+            
         }
     }
     
@@ -117,15 +126,6 @@ class HADMainViewController: UIViewController {
         print("User inactive, dimming screen")
         UIScreen.main.brightness = CGFloat(0.01)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-
+    
+    
 }
