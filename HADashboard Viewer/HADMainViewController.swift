@@ -12,114 +12,116 @@ import Alamofire
 import Foundation
 
 class HADMainViewController: UIViewController {
-    @IBOutlet weak var scrollView: UIScrollView!
+
+    @IBOutlet weak var paperLightButton: UIButton!
+    @IBOutlet weak var deskLightButton: UIButton!
+    @IBOutlet weak var bigLightButton: UIButton!
+    @IBOutlet weak var hallwayLightButton: UIButton!
+    @IBOutlet weak var kitchenLightButton: UIButton!
+    @IBOutlet weak var bedroomLightButton: UIButton!
+    @IBOutlet weak var livingroomGroupButton: UIButton!
+    
+    let apiClient = HADApiClient()
     
     var requestTimer: Timer!
     var peopleHome: Bool!
     var sleeping: Bool!
-    
-    let headers: HTTPHeaders = [
-        "x-ha-access": "\(Secrets.apiPassword)",
-        "Content-Type": "application/json"
-    ]
-    
+    var entities = [String:Entity]()
+    var usedEntities = [String:AnyObject]()
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.applicationDidTimeout(notification:)),
                                                name: .appTimeout,
                                                object: nil)
-        
-        requestTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(self.checkState), userInfo: nil, repeats: true)
-        self.requestPresence()
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeDashboard = storyboard.instantiateViewController(withIdentifier: "HADHomeViewController") as! HADHomeViewController
-            
-        scrollView.contentSize = CGSize(width: 2 * view.frame.width, height: scrollView.frame.height)
-        let frameVC = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        
-        homeDashboard.view.frame = frameVC
-        homeDashboard.setDashboardUrl(url: "\(Secrets.dashboardUrl)")
-        homeDashboard.willMove(toParentViewController: self)
-        self.addChildViewController(homeDashboard)
-        homeDashboard.didMove(toParentViewController: self)
-        scrollView.addSubview(homeDashboard.view)
-        
-        let weatherDashboard = storyboard.instantiateViewController(withIdentifier: "HADHomeViewController") as! HADHomeViewController
-        
-        let weatherFrame = CGRect(x: frameVC.size.width, y: 0, width: view.frame.width, height: view.frame.height)
-        
-        weatherDashboard.view.frame = weatherFrame
-        weatherDashboard.setDashboardUrl(url: "\(Secrets.homeassistantUrl)/floorplan?api_password=\(Secrets.apiPassword)")
-        weatherDashboard.willMove(toParentViewController: self)
-        self.addChildViewController(weatherDashboard)
-        weatherDashboard.didMove(toParentViewController: self)
-        scrollView.addSubview(weatherDashboard.view)
+        checkState()
+        requestTimer = Timer.scheduledTimer(timeInterval: 180.0, target: self, selector: #selector(self.checkState), userInfo: nil, repeats: true)
+        usedEntities = ["light.paperlight": paperLightButton,
+                        "light.desk": deskLightButton,
+                        "light.big_light": bigLightButton,
+                        "light.hallway": hallwayLightButton,
+                        "light.kitchen": kitchenLightButton,
+                        "light.yellow_light": bedroomLightButton]
     }
     @objc func checkState() {
-        self.requestPresence()
-        self.requestSleepingState()
-        
+        apiClient.getState(completion: { json in
+            if let jsonArray = json {
+                for jsonEntity in jsonArray {
+                    if let entity = Entity.init(JSONData: jsonEntity) {
+                        var newEntity = entity
+                        if let button = self.usedEntities[newEntity.id] {
+                            newEntity.button = button as? UIButton
+                        }
+                        self.entities[newEntity.id] = newEntity
+                    }
+                }
+                self.checkPresence()
+                self.updateIcons()
+            }
+        })
+    }
+    
+    func checkPresence() {
         let when = DispatchTime.now() + 5 // change 2 to desired number of seconds
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            if (self.sleeping) {
-                UIApplication.shared.isIdleTimerDisabled = false
-            } else if (self.peopleHome) {
-                UIApplication.shared.isIdleTimerDisabled = true
+        var screenOn = false
+        if let presenceEntity = entities["group.tracked_devices"] {
+            if presenceEntity.state == "home" {
+                screenOn = true
             } else {
-                UIApplication.shared.isIdleTimerDisabled = false
+                screenOn = false
             }
         }
         
-    }
-    
-    
-    func requestSleepingState() {
-        Alamofire.request("\(Secrets.homeassistantUrl)/api/states/input_boolean.sleeping", headers:headers).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = response.result.value as? [String:AnyObject]{
-                print("JSON: \(json)") // serialized json response
-                if let state = json["state"] {
-                    if (state.isEqual(to: "on")) {
-                        print("Everyone is sleeping")
-                        self.sleeping = true
-                    } else {
-                        print("Someone awake")
-                        self.sleeping = false
-                    }
-                } else {
-                    print("Wrong dictionary")
-                }
+        
+        if let sleepingEntity = entities["input_boolean.sleeping"] {
+            if sleepingEntity.state == "on" {
+                screenOn = false
+            } else {
+                screenOn = true
             }
-            
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            print("Screen on = \(screenOn)")
+            UIApplication.shared.isIdleTimerDisabled = screenOn
         }
     }
     
-    func requestPresence() {
-        Alamofire.request("\(Secrets.homeassistantUrl)/api/states/group.all_devices", headers:headers).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = response.result.value as? [String:AnyObject]{
-                print("JSON: \(json)") // serialized json response
-                if let state = json["state"] {
-                    if (state.isEqual(to: "home")) {
-                        print("Someone is home")
-                        self.peopleHome = true
-                    } else {
-                        print("No one is home")
-                        self.peopleHome = false
-                    }
-                } else {
-                    print("Wrong dictionary")
+    func updateIcons() {
+        for usedEntity in usedEntities {
+            if let entity = entities[usedEntity.key] {
+                if let button = entity.button {
+                    let imageName = entity.state == "on" ? "light_on": "light_off"
+                    button.setImage(UIImage(named: imageName), for: .normal)
                 }
             }
-            
         }
+    }
+    
+    func toggleEntityForButton(button: UIButton) {
+        
+    }
+    @IBAction func toggleEntity(_ sender: Any) {
+        if let key = (usedEntities as NSDictionary).allKeys(for: sender as! UIButton).first as? String {
+            if let entity = entities[key] {
+                apiClient.toggleEntity(name: entity.name, domain: entity.domain, completion: {
+                    self.checkState()
+                })
+            }
+        }
+    }
+    
+    @IBAction func togglePaperlight(_ sender: Any) {
+        if let paperlightEntity = entities["light.paperlight"] {
+            apiClient.toggleEntity(name: paperlightEntity.name, domain: paperlightEntity.domain, completion: {
+                self.checkState()
+            })
+        }
+    }
+    
+    @IBAction func lightsOff(_ sender: Any) {
+        apiClient.lightsOff(completion: {
+            self.checkState()
+        })
     }
     
     @objc func applicationDidTimeout(notification: NSNotification) {
