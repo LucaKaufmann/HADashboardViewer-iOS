@@ -124,15 +124,19 @@ class HADMainViewController: UIViewController, HAWebSocketDelegate {
         for jsonEntity in result {
             if let entity = Entity.init(JSONData: jsonEntity) {
                 var newEntity = entity
-                guard let button = self.usedEntities[newEntity.id] else {
-                    continue
+//                guard let button = self.usedEntities[newEntity.id] else {
+//                    continue
+//                }
+                if self.interestingEntities.contains(entity.id) {
+                    if let button = self.usedEntities[newEntity.id] {
+                        newEntity.button = button as? UIButton
+                    }
+                    self.entities[newEntity.id] = newEntity
                 }
-                
-                newEntity.button = button as? UIButton
-                self.entities[newEntity.id] = newEntity
             }
         }
         updateIcons()
+        checkPresence()
     }
     
     func receivedEvent(event: [String:Any]) {
