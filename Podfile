@@ -6,8 +6,10 @@ target 'HADashboard Viewer' do
   use_frameworks!
 
   # Pods for HADashboard Viewer
-  pod 'Alamofire', '~> 4.5'
-  
+  pod 'Alamofire'
+  pod 'Starscream'
+  pod 'SwiftyJSON'
+
   target 'HADashboard ViewerTests' do
     inherit! :search_paths
     # Pods for testing
