@@ -11,7 +11,7 @@ import WebKit
 import Alamofire
 import Foundation
 
-class HADMainViewController: UIViewController {
+class HADMainViewController: UIViewController, HAWebSocketDelegate {
 
     @IBOutlet weak var paperLightButton: UIButton!
     @IBOutlet weak var deskLightButton: UIButton!
@@ -21,43 +21,47 @@ class HADMainViewController: UIViewController {
     @IBOutlet weak var bedroomLightButton: UIButton!
     @IBOutlet weak var livingroomGroupButton: UIButton!
     
-    let apiClient = HADApiClient()
+    let webSocketClient = HADWebsocketClient()
     
     var requestTimer: Timer!
     var peopleHome: Bool!
     var sleeping: Bool!
     var entities = [String:Entity]()
     var usedEntities = [String:AnyObject]()
+    let interestingEntities = ["fan.xiaomi_air_purifier", "light.paperlight", "light.desk", "light.big_light", "light.hallway", "light.kitchen", "light.yellow_light", "group.tracked_devices", "input_boolean.sleeping"]
+    let presenceEntities = ["group.tracked_devices", "input_boolean.sleeping"]
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.applicationDidTimeout(notification:)),
                                                name: .appTimeout,
                                                object: nil)
-        checkState()
-        requestTimer = Timer.scheduledTimer(timeInterval: 180.0, target: self, selector: #selector(self.checkState), userInfo: nil, repeats: true)
+  
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.connect),
+                                               name: .UIApplicationWillEnterForeground,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.disconnect),
+                                               name: .UIApplicationDidEnterBackground,
+                                               object: nil)
+        
         usedEntities = ["light.paperlight": paperLightButton,
                         "light.desk": deskLightButton,
                         "light.big_light": bigLightButton,
                         "light.hallway": hallwayLightButton,
                         "light.kitchen": kitchenLightButton,
                         "light.yellow_light": bedroomLightButton]
+        
+        webSocketClient.delegate = self
+        webSocketClient.getStates()
     }
-    @objc func checkState() {
-        apiClient.getState(completion: { json in
-            if let jsonArray = json {
-                for jsonEntity in jsonArray {
-                    if let entity = Entity.init(JSONData: jsonEntity) {
-                        var newEntity = entity
-                        if let button = self.usedEntities[newEntity.id] {
-                            newEntity.button = button as? UIButton
-                        }
-                        self.entities[newEntity.id] = newEntity
-                    }
-                }
-                self.checkPresence()
-                self.updateIcons()
-            }
-        })
+    
+    @objc func connect() {
+        webSocketClient.connect()
+    }
+    
+    @objc func disconnect() {
+        webSocketClient.disconnect()
     }
     
     func checkPresence() {
@@ -96,32 +100,59 @@ class HADMainViewController: UIViewController {
             }
         }
     }
+
     
-    func toggleEntityForButton(button: UIButton) {
-        
-    }
     @IBAction func toggleEntity(_ sender: Any) {
         if let key = (usedEntities as NSDictionary).allKeys(for: sender as! UIButton).first as? String {
             if let entity = entities[key] {
-                apiClient.toggleEntity(name: entity.name, domain: entity.domain, completion: {
-                    self.checkState()
-                })
+                webSocketClient.toggle(entity: entity)
             }
         }
     }
     
-    @IBAction func togglePaperlight(_ sender: Any) {
-        if let paperlightEntity = entities["light.paperlight"] {
-            apiClient.toggleEntity(name: paperlightEntity.name, domain: paperlightEntity.domain, completion: {
-                self.checkState()
-            })
-        }
+    @IBAction func lightsOff(_ sender: Any) {
+       webSocketClient.lightsOff()
     }
     
-    @IBAction func lightsOff(_ sender: Any) {
-        apiClient.lightsOff(completion: {
-            self.checkState()
-        })
+    
+    func authenticated() {
+        webSocketClient.getStates()
+        webSocketClient.subscribeToEvent(event: .stateChange)
+    }
+    
+    func receivedResult(result: [[String:Any]]) {
+        for jsonEntity in result {
+            if let entity = Entity.init(JSONData: jsonEntity) {
+                var newEntity = entity
+//                guard let button = self.usedEntities[newEntity.id] else {
+//                    continue
+//                }
+                if self.interestingEntities.contains(entity.id) {
+                    if let button = self.usedEntities[newEntity.id] {
+                        newEntity.button = button as? UIButton
+                    }
+                    self.entities[newEntity.id] = newEntity
+                }
+            }
+        }
+        updateIcons()
+        checkPresence()
+    }
+    
+    func receivedEvent(event: [String:Any]) {
+        if let data = event["data"] as? [String:AnyObject]{
+            if let entity = data["new_state"] as? [String:AnyObject] {
+                if let entityId = entity["entity_id"] as? String {
+                    if self.interestingEntities.contains(entityId) {
+                        self.entities[entityId]?.state = entity["state"] as? String
+                        updateIcons()
+                    }
+                    if self.presenceEntities.contains(entityId) {
+                        checkPresence()
+                    }
+                }
+            }
+        }
     }
     
     @objc func applicationDidTimeout(notification: NSNotification) {
