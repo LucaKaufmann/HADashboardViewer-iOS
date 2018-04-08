@@ -9,24 +9,21 @@
 import UIKit
 import SwiftyJSON
 
-class HADWebSocketViewController: UIViewController, HAWebSocketDelegate, UITableViewDelegate, UITableViewDataSource {
+class HADWebSocketViewController: UIViewController, HAEntityManagerDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
     enum TableSection: Int {
-        case lights = 0, mediaPlayers, fans, groups, inputBoolean, deviceTracker, total
+        case lights = 0, fans, inputBoolean, switches, total
     }
     
     // This is the size of our header sections that we will use later on.
     let SectionHeaderHeight: CGFloat = 25
+    let entityManager = HADEntityManager.instance
     
     // Data variable to track our sorted data.
     var data = [TableSection: [Entity]]()
 
-    let webSocketClient = HADWebsocketClient()
-    //var entities = [String:Entity]()
-    var entities = [Entity]()
-    let interestingEntities = ["fan.xiaomi_air_purifier", "light.living_room", "media_player.living_room_tv", "media_player.living_room", "media_player.speaker", "vacuum.eve", "device_tracker.sevenplus", "device_tracker.tiias_iphone", "input_boolean.cleaning_doublepass", "input_boolean.schedule_cleaning"]
     struct Objects {
         
         var sectionName : String!
@@ -36,36 +33,25 @@ class HADWebSocketViewController: UIViewController, HAWebSocketDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webSocketClient.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.connect),
-                                               name: .UIApplicationWillEnterForeground,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.disconnect),
-                                               name: .UIApplicationDidEnterBackground,
-                                               object: nil)
+        entityManager.delegates.addDelegate(delegate: self)
+        self.automaticallyAdjustsScrollViewInsets = false
+        sortData()
         // Do any additional setup after loading the view.
-    }
-
-    @objc func connect() {
-        webSocketClient.connect()
-    }
-    
-    @objc func disconnect() {
-        webSocketClient.disconnect()
     }
     
     func sortData() {
+        
+        let entities = Array(entityManager.entities.values)
+        
         data[.lights] = entities.filter({ $0.domain == "light" })
-        data[.mediaPlayers] = entities.filter({ $0.domain == "media_player" })
+        //data[.mediaPlayers] = entities.filter({ $0.domain == "media_player" })
         data[.fans] = entities.filter({ $0.domain == "fan" })
-        data[.groups] = entities.filter({ $0.domain == "group" })
+        //data[.groups] = entities.filter({ $0.domain == "group" })
         data[.inputBoolean] = entities.filter({ $0.domain == "input_boolean" })
-        data[.deviceTracker] = entities.filter({ $0.domain == "device_tracker" })
+        //data[.deviceTracker] = entities.filter({ $0.domain == "device_tracker" })
+        data[.switches] = entities.filter({ $0.domain == "switch" })
         
         tableView.reloadData()
     }
@@ -73,44 +59,6 @@ class HADWebSocketViewController: UIViewController, HAWebSocketDelegate, UITable
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Websocket Delegate
-    func authenticated() {
-        data = [TableSection: [Entity]]()
-        entities = [Entity]()
-        webSocketClient.getStates()
-        webSocketClient.subscribeToEvent(event: .stateChange)
-    }
-    
-    func receivedResult(result: [[String:Any]]) {
-        for jsonEntity in result {
-            guard let id = jsonEntity["entity_id"] as? String else { continue }
-            if !self.interestingEntities.contains(id) {
-                continue
-            }
-            if let entity = Entity.init(JSONData: jsonEntity) {
-                //self.entities[newEntity.id] = newEntity
-                self.entities.append(entity)
-            }
-        }
-        sortData()
-    }
-    
-    func receivedEvent(event: [String:Any]) {
-        
-        if let data = event["data"] as? [String:AnyObject]{
-            if let entity = data["new_state"] as? [String:AnyObject] {
-                if let entityId = entity["entity_id"] as? String {
-                    if self.interestingEntities.contains(entityId) {
-                        if let indexToChange = self.entities.index(where: {$0.id == entityId}) {
-                            self.entities[indexToChange].state = entity["state"] as? String
-                            sortData()
-                        }
-                    }
-                }
-            }
-        }
     }
     
     // MARK: - Tableview Delegate
@@ -135,16 +83,18 @@ class HADWebSocketViewController: UIViewController, HAWebSocketDelegate, UITable
             switch tableSection {
             case .lights:
                 label.text = "Lights"
-            case .mediaPlayers:
-                label.text = "Media Players"
+//            case .mediaPlayers:
+//                label.text = "Media Players"
             case .fans:
                 label.text = "Fans"
-            case .groups:
-                label.text = "Groups"
+//            case .groups:
+//                label.text = "Groups"
             case .inputBoolean:
                 label.text = "Options"
-            case .deviceTracker:
-                label.text = "Presence"
+//            case .deviceTracker:
+//                label.text = "Presence"
+            case .switches:
+                label.text = "Switch"
             default:
                 label.text = ""
             }
@@ -159,9 +109,14 @@ class HADWebSocketViewController: UIViewController, HAWebSocketDelegate, UITable
             cell.textLabel?.text = entity.friendlyName
             cell.detailTextLabel?.text = entity.state
             
-            if tableSection == .deviceTracker {
-                cell.isUserInteractionEnabled = false
+            if entity.state == "on" {
+                cell.backgroundColor = UIColor(rgb: 0xFFFFCC)
+            } else {
+                cell.backgroundColor = UIColor.clear
             }
+//            if tableSection == .deviceTracker {
+//                cell.isUserInteractionEnabled = false
+//            }
         }
 
         return cell
@@ -169,11 +124,21 @@ class HADWebSocketViewController: UIViewController, HAWebSocketDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let tableSection = TableSection(rawValue: indexPath.section), let entity = data[tableSection]?[indexPath.row] {
-            webSocketClient.toggle(entity: entity)
+            entityManager.toggleEntity(entityId: entity.id)
         }
     }
     
+    func presenceChanged(shouldScreenBeOn: Bool) {
+        // do nothing
+    }
     
+    func entityUpdated(entity: Entity) {
+        sortData()
+    }
+    
+    func refreshUI() {
+        sortData()
+    }
     
     /*
     // MARK: - Navigation

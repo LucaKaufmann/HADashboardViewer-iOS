@@ -9,6 +9,7 @@ target 'HADashboard Viewer' do
   pod 'Alamofire'
   pod 'Starscream'
   pod 'SwiftyJSON'
+  pod 'SideMenu'
 
   target 'HADashboard ViewerTests' do
     inherit! :search_paths
