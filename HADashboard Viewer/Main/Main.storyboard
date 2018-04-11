@@ -32,139 +32,24 @@
             </objects>
             <point key="canvasLocation" x="-15.234374999999998" y="-142.1875"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Scroll View Controller-->
         <scene sceneID="8up-4S-HvO">
             <objects>
-                <viewController id="DHo-q2-eHI" customClass="HADMainViewController" customModule="HADashboard_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DHo-q2-eHI" customClass="HAScrollViewController" customModule="HADashboard_Viewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rwh-gN-9ev">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOf-AN-Upi">
-                                <rect key="frame" x="0.0" y="104" width="1024" height="617"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Apartment" translatesAutoresizingMaskIntoConstraints="NO" id="Oxi-Bv-Q5p">
-                                        <rect key="frame" x="0.0" y="5" width="1024" height="604"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awx-4o-5Ts">
-                                        <rect key="frame" x="167" y="50" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="QhC-EI-23X"/>
-                                            <constraint firstAttribute="height" constant="70" id="Y2f-zv-t6X"/>
-                                        </constraints>
-                                        <state key="normal" image="light_off"/>
-                                        <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="yRA-Hq-sP6"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEg-Au-Ur6">
-                                        <rect key="frame" x="347" y="50" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="6h6-Qo-htw"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="8gH-X3-KRs"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="j8x-Qi-9p4"/>
-                                            <constraint firstAttribute="height" constant="70" id="nQg-an-T0e"/>
-                                        </constraints>
-                                        <state key="normal" image="light_off"/>
-                                        <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="G6Q-4d-v3x"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05r-MD-gj5">
-                                        <rect key="frame" x="542" y="50" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="36u-8N-QXx"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="dcG-NN-lHd"/>
-                                            <constraint firstAttribute="height" constant="70" id="gPF-to-YL5"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="hhf-3X-VKB"/>
-                                        </constraints>
-                                        <state key="normal" image="light_off"/>
-                                        <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="U3e-Xf-yEo"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhV-sr-7tL">
-                                        <rect key="frame" x="542" y="417" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="6IA-cv-Ffk"/>
-                                            <constraint firstAttribute="width" constant="70" id="w0A-5x-kMu"/>
-                                        </constraints>
-                                        <state key="normal" image="light_off"/>
-                                        <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="hxd-ZB-RbV"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPO-0B-PKj">
-                                        <rect key="frame" x="897" y="417" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="IH9-zH-sBJ"/>
-                                            <constraint firstAttribute="height" constant="70" id="Mab-j6-sKR"/>
-                                        </constraints>
-                                        <state key="normal" image="light_off"/>
-                                        <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="K4D-Ta-l0x"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tu8-Zn-zyV">
-                                        <rect key="frame" x="897" y="50" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="9MV-67-pfR"/>
-                                            <constraint firstAttribute="width" constant="70" id="CqN-QJ-g2n"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="OM4-h4-gC1"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="Rnr-fk-xIz"/>
-                                        </constraints>
-                                        <state key="normal" image="light_off"/>
-                                        <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="ODT-mQ-E7N"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRM-J3-RlU">
-                                        <rect key="frame" x="68" y="455" width="125" height="125"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="125" id="kk0-nv-YEd"/>
-                                            <constraint firstAttribute="width" constant="125" id="wIs-yh-AOc"/>
-                                        </constraints>
-                                        <state key="normal" image="light_off"/>
-                                        <connections>
-                                            <action selector="lightsOff:" destination="DHo-q2-eHI" eventType="touchUpInside" id="fmE-UW-NJi"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All lights off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JW2-lq-14L">
-                                        <rect key="frame" x="85" y="588" width="91" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="UEg-Au-Ur6" firstAttribute="leading" secondItem="Awx-4o-5Ts" secondAttribute="trailing" constant="110" id="4uY-7I-DdJ"/>
-                                    <constraint firstItem="JPO-0B-PKj" firstAttribute="trailing" secondItem="tu8-Zn-zyV" secondAttribute="trailing" id="6KH-gq-qsm"/>
-                                    <constraint firstItem="tu8-Zn-zyV" firstAttribute="top" secondItem="05r-MD-gj5" secondAttribute="top" id="9OI-Dq-YaH"/>
-                                    <constraint firstAttribute="width" constant="1024" id="A3N-M7-Hzq"/>
-                                    <constraint firstItem="Awx-4o-5Ts" firstAttribute="leading" secondItem="jOf-AN-Upi" secondAttribute="leading" constant="167" id="Fyf-1K-x06"/>
-                                    <constraint firstAttribute="bottom" secondItem="JW2-lq-14L" secondAttribute="bottom" constant="8" id="GbX-dC-2tj"/>
-                                    <constraint firstItem="JPO-0B-PKj" firstAttribute="leading" secondItem="tu8-Zn-zyV" secondAttribute="leading" id="Rj1-Lt-n04"/>
-                                    <constraint firstItem="JW2-lq-14L" firstAttribute="top" secondItem="DRM-J3-RlU" secondAttribute="bottom" constant="8" id="Stj-pK-sKQ"/>
-                                    <constraint firstItem="Awx-4o-5Ts" firstAttribute="top" secondItem="jOf-AN-Upi" secondAttribute="top" constant="50" id="Tw5-Fq-fxs"/>
-                                    <constraint firstAttribute="bottom" secondItem="vhV-sr-7tL" secondAttribute="bottom" constant="130" id="YJA-Qw-97w"/>
-                                    <constraint firstItem="DRM-J3-RlU" firstAttribute="leading" secondItem="jOf-AN-Upi" secondAttribute="leading" constant="68" id="YRn-jn-bFi"/>
-                                    <constraint firstItem="vhV-sr-7tL" firstAttribute="leading" secondItem="05r-MD-gj5" secondAttribute="leading" id="Z7z-Ig-4nZ"/>
-                                    <constraint firstItem="05r-MD-gj5" firstAttribute="leading" secondItem="UEg-Au-Ur6" secondAttribute="trailing" constant="125" id="aM9-6f-5C8"/>
-                                    <constraint firstItem="JW2-lq-14L" firstAttribute="leading" secondItem="jOf-AN-Upi" secondAttribute="leading" constant="85" id="brd-OR-k3l"/>
-                                    <constraint firstItem="05r-MD-gj5" firstAttribute="top" secondItem="UEg-Au-Ur6" secondAttribute="top" id="hT9-2P-kN2"/>
-                                    <constraint firstItem="tu8-Zn-zyV" firstAttribute="leading" secondItem="05r-MD-gj5" secondAttribute="trailing" constant="285" id="htQ-xu-efw"/>
-                                    <constraint firstAttribute="height" constant="617" id="iG8-EA-gI6"/>
-                                    <constraint firstItem="UEg-Au-Ur6" firstAttribute="top" secondItem="Awx-4o-5Ts" secondAttribute="top" id="qWp-QO-0kw"/>
-                                    <constraint firstItem="JPO-0B-PKj" firstAttribute="top" secondItem="vhV-sr-7tL" secondAttribute="top" id="wvn-Uw-caQ"/>
-                                </constraints>
-                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qly-bu-1Il">
+                                <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jOf-AN-Upi" firstAttribute="leading" secondItem="G32-JA-9SM" secondAttribute="leading" id="L55-HE-vdf"/>
-                            <constraint firstItem="jOf-AN-Upi" firstAttribute="top" secondItem="G32-JA-9SM" secondAttribute="top" constant="40" id="bHR-Id-4VC"/>
+                            <constraint firstItem="Qly-bu-1Il" firstAttribute="trailing" secondItem="G32-JA-9SM" secondAttribute="trailing" id="1nH-Oj-bXh"/>
+                            <constraint firstItem="Qly-bu-1Il" firstAttribute="top" secondItem="G32-JA-9SM" secondAttribute="top" id="2it-a8-Erv"/>
+                            <constraint firstItem="Qly-bu-1Il" firstAttribute="bottom" secondItem="G32-JA-9SM" secondAttribute="bottom" id="cx0-7A-C3l"/>
+                            <constraint firstItem="Qly-bu-1Il" firstAttribute="leading" secondItem="G32-JA-9SM" secondAttribute="leading" id="ytf-Ok-210"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G32-JA-9SM"/>
                     </view>
@@ -176,22 +61,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bedroomLightButton" destination="tu8-Zn-zyV" id="Xkh-5W-ILe"/>
-                        <outlet property="bigLightButton" destination="05r-MD-gj5" id="ejC-b6-CsH"/>
-                        <outlet property="deskLightButton" destination="UEg-Au-Ur6" id="SiK-1n-0Js"/>
-                        <outlet property="hallwayLightButton" destination="vhV-sr-7tL" id="klI-zk-nbB"/>
-                        <outlet property="kitchenLightButton" destination="JPO-0B-PKj" id="6Jj-LL-sJI"/>
-                        <outlet property="paperLightButton" destination="Awx-4o-5Ts" id="yXr-2o-pXw"/>
+                        <outlet property="scrollView" destination="Qly-bu-1Il" id="uw1-Cb-5Cx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQf-Na-6gF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-793.9453125" y="-142.1875"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="3aY-rO-okS">
             <objects>
-                <viewController id="1AT-c1-Ust" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="floorplan" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1AT-c1-Ust" customClass="HADMainViewController" customModule="HADashboard_Viewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C9Q-by-nay">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +91,7 @@
                                         </constraints>
                                         <state key="normal" image="light_off"/>
                                         <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="tog-bf-UaI"/>
+                                            <action selector="toggleEntity:" destination="1AT-c1-Ust" eventType="touchUpInside" id="ham-Gf-fCY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C93-m7-ewW">
@@ -224,7 +104,7 @@
                                         </constraints>
                                         <state key="normal" image="light_off"/>
                                         <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="awE-y2-M8f"/>
+                                            <action selector="toggleEntity:" destination="1AT-c1-Ust" eventType="touchUpInside" id="lit-Md-Q3r"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep9-Z1-aMd">
@@ -237,7 +117,7 @@
                                         </constraints>
                                         <state key="normal" image="light_off"/>
                                         <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="hx5-Z5-lc2"/>
+                                            <action selector="toggleEntity:" destination="1AT-c1-Ust" eventType="touchUpInside" id="zaE-aj-nj2"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="db1-6K-g6y">
@@ -248,7 +128,7 @@
                                         </constraints>
                                         <state key="normal" image="light_off"/>
                                         <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="2AG-Ci-rkF"/>
+                                            <action selector="toggleEntity:" destination="1AT-c1-Ust" eventType="touchUpInside" id="Hqr-Xg-WHE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6td-2e-WSh">
@@ -259,7 +139,7 @@
                                         </constraints>
                                         <state key="normal" image="light_off"/>
                                         <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="K70-NL-ejF"/>
+                                            <action selector="toggleEntity:" destination="1AT-c1-Ust" eventType="touchUpInside" id="lbg-Dc-0HD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2T-4h-IQJ">
@@ -272,7 +152,7 @@
                                         </constraints>
                                         <state key="normal" image="light_off"/>
                                         <connections>
-                                            <action selector="toggleEntity:" destination="DHo-q2-eHI" eventType="touchUpInside" id="QTG-eH-dlp"/>
+                                            <action selector="toggleEntity:" destination="1AT-c1-Ust" eventType="touchUpInside" id="0Ci-Tf-sGX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGO-ak-Sri">
@@ -284,6 +164,7 @@
                                         <state key="normal" image="light_off"/>
                                         <connections>
                                             <action selector="lightsOff:" destination="DHo-q2-eHI" eventType="touchUpInside" id="7gX-n5-PHO"/>
+                                            <action selector="lightsOff:" destination="1AT-c1-Ust" eventType="touchUpInside" id="GK6-N3-U6V"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All lights off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DC7-SJ-fjg">
@@ -326,6 +207,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="avP-8b-DEh"/>
                     </view>
+                    <connections>
+                        <outlet property="bedroomLightButton" destination="X2T-4h-IQJ" id="fQI-oX-DBx"/>
+                        <outlet property="bigLightButton" destination="Ep9-Z1-aMd" id="glL-V5-JlT"/>
+                        <outlet property="deskLightButton" destination="C93-m7-ewW" id="W18-In-O7c"/>
+                        <outlet property="hallwayLightButton" destination="db1-6K-g6y" id="MbM-B7-C2h"/>
+                        <outlet property="kitchenLightButton" destination="6td-2e-WSh" id="ULR-N1-VxJ"/>
+                        <outlet property="paperLightButton" destination="2s8-4Z-mLc" id="9Vs-BT-EWm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z44-3q-Uaw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -334,7 +223,7 @@
         <!--Entities-->
         <scene sceneID="9U9-p7-J3x">
             <objects>
-                <viewController id="3Dq-4v-puM" customClass="HADWebSocketViewController" customModule="HADashboard_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="websocketViewController" id="3Dq-4v-puM" customClass="HADWebSocketViewController" customModule="HADashboard_Viewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1uA-Ld-Lu5">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

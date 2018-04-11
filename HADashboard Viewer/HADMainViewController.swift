@@ -29,12 +29,6 @@ class HADMainViewController: UIViewController, HAEntityManagerDelegate {
     
 
     override func viewDidLoad() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.applicationDidTimeout(notification:)),
-                                               name: .appTimeout,
-                                               object: nil)
-
-        
         floorplanEntities = ["light.paperlight": paperLightButton,
                                       "light.desk": deskLightButton,
                                       "light.big_light": bigLightButton,
@@ -81,12 +75,5 @@ class HADMainViewController: UIViewController, HAEntityManagerDelegate {
             }
         }
     }
-    
-    
-    @objc func applicationDidTimeout(notification: NSNotification) {
-        print("User inactive, dimming screen")
-        UIScreen.main.brightness = CGFloat(0.01)
-    }
-    
     
 }

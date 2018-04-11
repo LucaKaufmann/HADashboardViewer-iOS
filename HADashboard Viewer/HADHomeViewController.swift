@@ -13,16 +13,17 @@ import Foundation
 
 class HADHomeViewController: UIViewController {
     
-    @IBOutlet weak var webView: UIWebView!
+    let webView = UIWebView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         //webView.load(myRequest)
+        webView.frame = self.view.frame
         webView.scrollView.isScrollEnabled = false
-        
         webView.reload()
+        self.view.addSubview(webView)
     }
     
     func setDashboardUrl(url: String) {

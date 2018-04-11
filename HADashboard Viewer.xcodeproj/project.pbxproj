@@ -25,6 +25,7 @@
 		816D431A1FAB6CB30019A43B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816D43191FAB6CB30019A43B /* Main.storyboard */; };
 		8173BD872079F92100E3B96D /* MultiCastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8173BD862079F92100E3B96D /* MultiCastDelegate.swift */; };
 		8173BD89207A05F400E3B96D /* UIColor+dashboardColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8173BD88207A05F400E3B96D /* UIColor+dashboardColors.swift */; };
+		8173BD8B207A0A6A00E3B96D /* HAScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8173BD8A207A0A6A00E3B96D /* HAScrollViewController.swift */; };
 		81A75997205C0B190080B3EA /* Apartment.png in Resources */ = {isa = PBXBuildFile; fileRef = 81A75996205C0B190080B3EA /* Apartment.png */; };
 		81A75999205C56200080B3EA /* HADWebsocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A75998205C56200080B3EA /* HADWebsocketClient.swift */; };
 		81EE0A73206657BD00B6203E /* HADWebSocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE0A72206657BD00B6203E /* HADWebSocketViewController.swift */; };
@@ -78,6 +79,7 @@
 		816D43191FAB6CB30019A43B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8173BD862079F92100E3B96D /* MultiCastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiCastDelegate.swift; sourceTree = "<group>"; };
 		8173BD88207A05F400E3B96D /* UIColor+dashboardColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+dashboardColors.swift"; sourceTree = "<group>"; };
+		8173BD8A207A0A6A00E3B96D /* HAScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HAScrollViewController.swift; sourceTree = "<group>"; };
 		81A75996205C0B190080B3EA /* Apartment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apartment.png; sourceTree = SOURCE_ROOT; };
 		81A75998205C56200080B3EA /* HADWebsocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HADWebsocketClient.swift; sourceTree = "<group>"; };
 		81EE0A72206657BD00B6203E /* HADWebSocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HADWebSocketViewController.swift; path = "HADashboard Viewer/HADWebSocketViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -160,6 +162,7 @@
 				8155CE30205CEE8800D1031D /* Api */,
 				4047717A1F77D9B100D93E56 /* HADHomeViewController.swift */,
 				810DE37C1FACBE99009B197D /* HADMainViewController.swift */,
+				8173BD8A207A0A6A00E3B96D /* HAScrollViewController.swift */,
 				81EE0A72206657BD00B6203E /* HADWebSocketViewController.swift */,
 				81113FA1206E1BCD00A35EBC /* Manager */,
 				8155CE35205D019900D1031D /* Model */,
@@ -550,6 +553,7 @@
 			files = (
 				8155CE37205D01AA00D1031D /* Entity.swift in Sources */,
 				8173BD872079F92100E3B96D /* MultiCastDelegate.swift in Sources */,
+				8173BD8B207A0A6A00E3B96D /* HAScrollViewController.swift in Sources */,
 				81057AEC2066CD51005BFA1E /* Secrets.swift in Sources */,
 				810DE37D1FACBE99009B197D /* HADMainViewController.swift in Sources */,
 				8173BD89207A05F400E3B96D /* UIColor+dashboardColors.swift in Sources */,
