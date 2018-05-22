@@ -52,11 +52,10 @@ class HADWebsocketClient: NSObject, WebSocketDelegate {
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("websocket is disconnected: \(error?.localizedDescription)")
+        print("websocket is disconnected: \(String(describing: error?.localizedDescription))")
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("got some text: \(text)")
         let json = JSON.init(parseJSON: text)
         if let type = json["type"].string {
             switch type {
