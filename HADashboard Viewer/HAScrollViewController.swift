@@ -22,6 +22,7 @@ class HAScrollViewController: UIViewController {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let floorplanView = storyboard.instantiateViewController(withIdentifier: "floorplan") as! HADMainViewController
+        let floorplanUpstairsView = storyboard.instantiateViewController(withIdentifier: "upstairs") as! HADUpstairsViewController
         
         scrollView.contentSize = CGSize(width: 2 * view.frame.width, height: 1.0)
         let frameVC = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
@@ -32,16 +33,12 @@ class HAScrollViewController: UIViewController {
         floorplanView.didMove(toParentViewController: self)
         scrollView.addSubview(floorplanView.view)
         
-        let weatherDashboard = HADHomeViewController()
-        
-        let weatherFrame = CGRect(x: frameVC.size.width, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
-        
-        weatherDashboard.setDashboardUrl(url: "http://192.168.92.101:3000/d/gZyEexigz/home-assistant?orgId=1&from=1523004429966&to=1523177229966")
-        weatherDashboard.view.frame = weatherFrame
-        weatherDashboard.willMove(toParentViewController: self)
-        self.addChildViewController(weatherDashboard)
-        weatherDashboard.didMove(toParentViewController: self)
-        scrollView.addSubview(weatherDashboard.view)
+        let upstairsFrame = CGRect(x: frameVC.size.width, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+        floorplanUpstairsView.view.frame = upstairsFrame
+        floorplanUpstairsView.willMove(toParentViewController: self)
+        self.addChildViewController(floorplanUpstairsView)
+        floorplanUpstairsView.didMove(toParentViewController: self)
+        scrollView.addSubview(floorplanUpstairsView.view)
     }
 
     override func didReceiveMemoryWarning() {

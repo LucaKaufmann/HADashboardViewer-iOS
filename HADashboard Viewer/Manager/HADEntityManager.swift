@@ -23,7 +23,7 @@ class HADEntityManager: NSObject, HAWebSocketDelegate {
     
     let delegates = MulticastDelegate<HAEntityManagerDelegate>()
     
-    let interestingEntities = ["fan.xiaomi_air_purifier", "light.paperlight", "light.big_light", "light.hallway", "light.kitchen", "light.yellow_light", "group.tracked_devices", "input_boolean.sleeping", "device_tracker.tiiaphone", "device_tracker.sevenplus", "input_boolean.follow_music", "switch.start_vacuum", "switch.clean_kitchen", "input_boolean.schedule_cleaning", "input_boolean.schedule_kitchen_cleaning", "input_boolean.cleaning_doublepass"]
+    let interestingEntities = ["fan.xiaomi_air_purifier", "light.paperlight", "light.big_light", "light.hallway", "light.kitchen", "light.desk", "light.yellow_light", "light.hallway_upstairs", "group.tracked_devices", "input_boolean.sleeping", "device_tracker.tiiaphone", "device_tracker.sevenplus", "input_boolean.follow_music", "switch.start_vacuum", "switch.clean_kitchen", "input_boolean.schedule_cleaning", "input_boolean.schedule_kitchen_cleaning", "input_boolean.cleaning_doublepass", "vacuum.eve"]
     let presenceEntities = ["group.tracked_devices", "input_boolean.sleeping"]
 
     var entities = [String:Entity]()

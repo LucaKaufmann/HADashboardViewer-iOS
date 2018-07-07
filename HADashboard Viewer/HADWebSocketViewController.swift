@@ -14,7 +14,7 @@ class HADWebSocketViewController: UIViewController, HAEntityManagerDelegate, UIT
     @IBOutlet weak var tableView: UITableView!
     
     enum TableSection: Int {
-        case lights = 0, fans, inputBoolean, switches, total
+        case lights = 0, fans, inputBoolean, switches, vacuums, total
     }
     
     // This is the size of our header sections that we will use later on.
@@ -52,6 +52,7 @@ class HADWebSocketViewController: UIViewController, HAEntityManagerDelegate, UIT
         data[.inputBoolean] = entities.filter({ $0.domain == "input_boolean" })
         //data[.deviceTracker] = entities.filter({ $0.domain == "device_tracker" })
         data[.switches] = entities.filter({ $0.domain == "switch" })
+        data[.vacuums] = entities.filter({ $0.domain == "vacuum" })
         
         tableView.reloadData()
     }
@@ -95,6 +96,8 @@ class HADWebSocketViewController: UIViewController, HAEntityManagerDelegate, UIT
 //                label.text = "Presence"
             case .switches:
                 label.text = "Switch"
+            case .vacuums:
+                label.text = "Vacuum"
             default:
                 label.text = ""
             }

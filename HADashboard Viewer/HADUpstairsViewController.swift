@@ -11,16 +11,12 @@ import WebKit
 import Alamofire
 import Foundation
 
-class HADMainViewController: UIViewController, HAEntityManagerDelegate {
+class HADUpstairsViewController: UIViewController, HAEntityManagerDelegate {
     
-    @IBOutlet weak var paperLightButton: UIButton!
-    @IBOutlet weak var deskLightButton: UIButton!
-    @IBOutlet weak var bigLightButton: UIButton!
-    @IBOutlet weak var hallwayLightButton: UIButton!
-    @IBOutlet weak var kitchenLightButton: UIButton!
+    
+    
     @IBOutlet weak var bedroomLightButton: UIButton!
-    @IBOutlet weak var livingroomGroupButton: UIButton!
-    @IBOutlet weak var vacuumButton: UIButton!
+    @IBOutlet weak var hallwayLightButton: UIButton!
     
     let entityManager = HADEntityManager.instance
     
@@ -28,28 +24,24 @@ class HADMainViewController: UIViewController, HAEntityManagerDelegate {
     var floorplanEntities = [String:AnyObject]()
     
     
-
+    
     override func viewDidLoad() {
-        floorplanEntities = ["light.paperlight": paperLightButton,
-                                      "light.desk": deskLightButton,
-                                      "light.big_light": bigLightButton,
-                                      "light.kitchen": kitchenLightButton,
-                                      "vacuum.eve": vacuumButton]
+        floorplanEntities = ["light.yellow_light": bedroomLightButton,
+                             "light.hallway_upstairs": hallwayLightButton]
         
         entityManager.delegates.addDelegate(delegate: self)
         entityManager.connect()
     }
-
+    
     
     @IBAction func toggleEntity(_ sender: Any) {
         if let key = (floorplanEntities as NSDictionary).allKeys(for: sender as! UIButton).first as? String {
-            print("Toggle \(key)")
             entityManager.toggleEntity(entityId: key)
         }
     }
     
     @IBAction func lightsOff(_ sender: Any) {
-       entityManager.allLightsOff()
+        entityManager.allLightsOff()
     }
     
     func presenceChanged(shouldScreenBeOn: Bool) {
@@ -62,9 +54,6 @@ class HADMainViewController: UIViewController, HAEntityManagerDelegate {
     
     func entityUpdated(entity: Entity) {
         if let button = floorplanEntities[entity.id] {
-            if entity.domain == "vacuum" {
-                return
-            }
             let imageName = entity.state == "on" ? "light_on": "light_off"
             button.setImage(UIImage(named: imageName), for: .normal)
         }
@@ -74,9 +63,6 @@ class HADMainViewController: UIViewController, HAEntityManagerDelegate {
         let entities = entityManager.entities
         for (_, entity) in entities {
             if let button = floorplanEntities[entity.id] {
-                if entity.domain == "vacuum" {
-                    continue
-                }
                 let imageName = entity.state == "on" ? "light_on": "light_off"
                 button.setImage(UIImage(named: imageName), for: .normal)
             }

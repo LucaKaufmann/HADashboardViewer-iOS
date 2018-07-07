@@ -20,6 +20,7 @@
 		81057AEC2066CD51005BFA1E /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81057AEB2066CD51005BFA1E /* Secrets.swift */; };
 		810DE37D1FACBE99009B197D /* HADMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810DE37C1FACBE99009B197D /* HADMainViewController.swift */; };
 		81113FA3206E1BE500A35EBC /* HADEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81113FA2206E1BE500A35EBC /* HADEntityManager.swift */; };
+		813B85DA20F0F01D00A98B5D /* HADUpstairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B85D920F0F01D00A98B5D /* HADUpstairsViewController.swift */; };
 		8155CE34205CF3CE00D1031D /* HADApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8155CE33205CF3CE00D1031D /* HADApiClient.swift */; };
 		8155CE37205D01AA00D1031D /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8155CE36205D01AA00D1031D /* Entity.swift */; };
 		816D431A1FAB6CB30019A43B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816D43191FAB6CB30019A43B /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		81057AEB2066CD51005BFA1E /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		810DE37C1FACBE99009B197D /* HADMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HADMainViewController.swift; sourceTree = "<group>"; };
 		81113FA2206E1BE500A35EBC /* HADEntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HADEntityManager.swift; sourceTree = "<group>"; };
+		813B85D920F0F01D00A98B5D /* HADUpstairsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HADUpstairsViewController.swift; sourceTree = "<group>"; };
 		8155CE33205CF3CE00D1031D /* HADApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HADApiClient.swift; sourceTree = "<group>"; };
 		8155CE36205D01AA00D1031D /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		816D43191FAB6CB30019A43B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				8155CE30205CEE8800D1031D /* Api */,
 				4047717A1F77D9B100D93E56 /* HADHomeViewController.swift */,
 				810DE37C1FACBE99009B197D /* HADMainViewController.swift */,
+				813B85D920F0F01D00A98B5D /* HADUpstairsViewController.swift */,
 				8173BD8A207A0A6A00E3B96D /* HAScrollViewController.swift */,
 				81EE0A72206657BD00B6203E /* HADWebSocketViewController.swift */,
 				81113FA1206E1BCD00A35EBC /* Manager */,
@@ -552,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8155CE37205D01AA00D1031D /* Entity.swift in Sources */,
+				813B85DA20F0F01D00A98B5D /* HADUpstairsViewController.swift in Sources */,
 				8173BD872079F92100E3B96D /* MultiCastDelegate.swift in Sources */,
 				8173BD8B207A0A6A00E3B96D /* HAScrollViewController.swift in Sources */,
 				81057AEC2066CD51005BFA1E /* Secrets.swift in Sources */,
