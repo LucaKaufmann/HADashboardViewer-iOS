@@ -160,9 +160,7 @@
 				81EE0A712066576B00B6203E /* Main */,
 				81EE0A702066574F00B6203E /* Dimming */,
 				8155CE30205CEE8800D1031D /* Api */,
-				4047717A1F77D9B100D93E56 /* HADHomeViewController.swift */,
-				810DE37C1FACBE99009B197D /* HADMainViewController.swift */,
-				8173BD8A207A0A6A00E3B96D /* HAScrollViewController.swift */,
+				81143BAD20B3FBEE009ED93D /* Controllers */,
 				81EE0A72206657BD00B6203E /* HADWebSocketViewController.swift */,
 				81113FA1206E1BCD00A35EBC /* Manager */,
 				8155CE35205D019900D1031D /* Model */,
@@ -200,6 +198,16 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		81143BAD20B3FBEE009ED93D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4047717A1F77D9B100D93E56 /* HADHomeViewController.swift */,
+				810DE37C1FACBE99009B197D /* HADMainViewController.swift */,
+				8173BD8A207A0A6A00E3B96D /* HAScrollViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		8155CE30205CEE8800D1031D /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,8 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				816D43191FAB6CB30019A43B /* Main.storyboard */,
-				8173BD88207A05F400E3B96D /* UIColor+dashboardColors.swift */,
 				81EE0A742066A5FE00B6203E /* StoryboardiPhone.storyboard */,
+				8173BD88207A05F400E3B96D /* UIColor+dashboardColors.swift */,
 				81057AEB2066CD51005BFA1E /* Secrets.swift */,
 				4029B0D41F83FE50004C5567 /* main.swift */,
 				404771481F77D4F400D93E56 /* AppDelegate.swift */,
